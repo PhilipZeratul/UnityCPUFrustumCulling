@@ -1,0 +1,25 @@
+/*
+!.gitignore
+
+
+# Unity related
+!/Assets
+!/Packages
+!/ProjectSettings
+*.unitypackage
+
+
+# Mac-OSX related
+.DS_Store
+
+
+# Documents
+!/Documents
+!README.md
+
+
+# Additional
+!/AdditionalResources
+*.zip
+*.rar
+*.7z
