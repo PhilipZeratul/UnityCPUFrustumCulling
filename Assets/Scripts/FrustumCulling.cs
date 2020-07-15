@@ -249,12 +249,13 @@ public class FrustumCulling : MonoBehaviour
             obj.transform.position = new Vector3(Remap((float)rnd.NextDouble(), 0f, 1f, minX, maxX),
                                                  Remap((float)rnd.NextDouble(), 0f, 1f, minY, maxY),
                                                  Remap((float)rnd.NextDouble(), 0f, 1f, minZ, maxZ));
+            obj.transform.localScale = new Vector3(5, 5, 5);
             Destroy(obj.GetComponent<Collider>());
-            Mesh mesh = obj.GetComponent<MeshFilter>().mesh;
+            Renderer renderer = obj.GetComponent<Renderer>();
             cullingBoxes[i] = new CullingBox()
             {
-                boxCenter = mesh.bounds.center + obj.transform.position,
-                boxExtents = mesh.bounds.extents,
+                boxCenter = renderer.bounds.center,
+                boxExtents = renderer.bounds.extents,
                 isInFrustum = false,
                 renderer = obj.GetComponent<Renderer>()
             };
